@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,13 @@ public class DataCrackGame : MonoBehaviour
     private int currentBarIndex = 0;
     private bool[] movingUp;      // Indique si chaque barre monte ou descend
     private bool[] isBarLocked;   // Indique si la barre est verrouillée en place
+    public GameObject GameResultInfo;
 
     void Start()
     {
+        GameResultInfo.SetActive(false);
+        //Dont set focus on input field
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
         // Initialisation des directions de mouvement et du verrouillage
         movingUp = new bool[bars.Length];
         isBarLocked = new bool[bars.Length];
@@ -81,6 +86,30 @@ public class DataCrackGame : MonoBehaviour
         }
     }
 
+    public void NewGame()
+    {
+        GameResultInfo.SetActive(false);
+        // Remettre à zéro les barres
+        for (int i = 0; i < bars.Length; i++)
+        {
+            bars[i].anchoredPosition = new Vector2(bars[i].anchoredPosition.x, 0);
+            movingUp[i] = true;
+            isBarLocked[i] = false;
+        }
+
+        // Sélectionner la première barre
+        currentBarIndex = 0;
+        ColorSelectBar(bars[0].gameObject, true);
+        //Dont set focus on input field
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+    }
+    private void DisplayGameResult(string result, Color color)
+    {
+        GameResultInfo.SetActive(true);
+        GameResultInfo.GetComponent<TextMeshProUGUI>().text = result;
+        GameResultInfo.GetComponent<TextMeshProUGUI>().color = color;
+    }
+
     void CheckBarPosition()
     {
         // Vérifier si la barre active est alignée avec la ligne rouge
@@ -101,6 +130,7 @@ public class DataCrackGame : MonoBehaviour
                 Debug.Log("Toutes les barres sont placées !");
                 // Toutes les barres sont placées, le joueur a gagné
                 ColorSelectBar(bars[currentBarIndex-1].gameObject, false);
+                DisplayGameResult("Gagné !", Color.green);
             }
             else
             {
@@ -110,6 +140,8 @@ public class DataCrackGame : MonoBehaviour
         else
         {
             Debug.Log("Échec !");
+            Debug.Log("Barre : " + barPositionY + " Ligne : " + linePositionY);
+            Debug.Log("Différence : " + Mathf.Abs(barPositionY - linePositionY));
             // Revenir à la barre précédente si elle existe
             if (currentBarIndex > 0)
             {
