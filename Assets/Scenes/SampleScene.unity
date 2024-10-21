@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 236358264}
   - component: {fileID: 236358266}
   - component: {fileID: 236358265}
+  - component: {fileID: 236358267}
   m_Layer: 5
   m_Name: BarUp
   m_TagString: Untagged
@@ -311,6 +312,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236358263}
   m_CullTransparentMesh: 1
+--- !u!114 &236358267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236358263}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +430,7 @@ GameObject:
   - component: {fileID: 648665563}
   - component: {fileID: 648665565}
   - component: {fileID: 648665564}
+  - component: {fileID: 648665566}
   m_Layer: 5
   m_Name: BarUp
   m_TagString: Untagged
@@ -478,6 +495,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648665562}
   m_CullTransparentMesh: 1
+--- !u!114 &648665566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648665562}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &780292355
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +521,7 @@ GameObject:
   - component: {fileID: 780292356}
   - component: {fileID: 780292358}
   - component: {fileID: 780292357}
+  - component: {fileID: 780292359}
   m_Layer: 5
   m_Name: BarDown
   m_TagString: Untagged
@@ -553,6 +586,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780292355}
   m_CullTransparentMesh: 1
+--- !u!114 &780292359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780292355}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &802851904
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +612,7 @@ GameObject:
   - component: {fileID: 802851905}
   - component: {fileID: 802851907}
   - component: {fileID: 802851906}
+  - component: {fileID: 802851908}
   m_Layer: 5
   m_Name: BarUp
   m_TagString: Untagged
@@ -628,6 +677,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802851904}
   m_CullTransparentMesh: 1
+--- !u!114 &802851908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802851904}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1140444403
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +728,7 @@ MonoBehaviour:
   - {fileID: 1979287812}
   baseSpeed: 300
   BarsZone: {fileID: 1711222629}
+  tolerance: 20
 --- !u!4 &1140444405
 Transform:
   m_ObjectHideFlags: 0
@@ -690,6 +755,7 @@ GameObject:
   - component: {fileID: 1559653868}
   - component: {fileID: 1559653870}
   - component: {fileID: 1559653869}
+  - component: {fileID: 1559653871}
   m_Layer: 5
   m_Name: BarDown
   m_TagString: Untagged
@@ -754,6 +820,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559653867}
   m_CullTransparentMesh: 1
+--- !u!114 &1559653871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559653867}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1606820104
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +959,7 @@ GameObject:
   - component: {fileID: 1722372711}
   - component: {fileID: 1722372713}
   - component: {fileID: 1722372712}
+  - component: {fileID: 1722372714}
   m_Layer: 5
   m_Name: BarDown
   m_TagString: Untagged
@@ -942,6 +1024,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722372710}
   m_CullTransparentMesh: 1
+--- !u!114 &1722372714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722372710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.9606118, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: -6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1780695504
 GameObject:
   m_ObjectHideFlags: 0

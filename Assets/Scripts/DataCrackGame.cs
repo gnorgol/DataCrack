@@ -7,6 +7,7 @@ public class DataCrackGame : MonoBehaviour
     public RectTransform[] bars;  // Les barres blanches qui bougent
     public float baseSpeed;       // Vitesse de base pour les barres
     public RectTransform BarsZone; // Zone des barres
+    public int tolerance = 10;         // Tolérance d'alignement
     private int currentBarIndex = 0;
     private bool[] movingUp;      // Indique si chaque barre monte ou descend
     private bool[] isBarLocked;   // Indique si la barre est verrouillée en place
@@ -16,6 +17,9 @@ public class DataCrackGame : MonoBehaviour
         // Initialisation des directions de mouvement et du verrouillage
         movingUp = new bool[bars.Length];
         isBarLocked = new bool[bars.Length];
+
+        // Sélectionner la première barre
+        ColorSelectBar(bars[0].gameObject, true);
 
         // Toutes les barres commencent en montant
         for (int i = 0; i < bars.Length; i++)
@@ -34,6 +38,17 @@ public class DataCrackGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CheckBarPosition();
+        }
+    }
+    void ColorSelectBar(GameObject bar, bool isSelected)
+    {
+        // Get child of the bar and set the outline color
+        Outline[] outlines = bar.GetComponentsInChildren<Outline>();
+        foreach (Outline outline in outlines)
+        {
+            outline.enabled = isSelected;
+            outline.effectColor = isSelected ? Color.yellow : Color.white;
+            outline.effectDistance = new Vector2(6, -6);
         }
     }
 
@@ -72,17 +87,24 @@ public class DataCrackGame : MonoBehaviour
         float barPositionY = bars[currentBarIndex].anchoredPosition.y;
         float linePositionY = redLine.anchoredPosition.y;
 
-        if (Mathf.Abs(barPositionY - linePositionY) < 10f) // Tolérance d'alignement
+        if (Mathf.Abs(barPositionY - linePositionY) < tolerance) // Tolérance d'alignement
         {
             Debug.Log("Succès !");
             // Placer la barre exactement au milieu de la ligne rouge
             bars[currentBarIndex].anchoredPosition = new Vector2(bars[currentBarIndex].anchoredPosition.x, linePositionY);
             isBarLocked[currentBarIndex] = true; // Verrouiller la barre en place
+            ColorSelectBar(bars[currentBarIndex].gameObject, false); // Désélectionner la barre
             currentBarIndex++; // Passer à la barre suivante
+             // Sélectionner la barre suivante
             if (currentBarIndex >= bars.Length)
             {
                 Debug.Log("Toutes les barres sont placées !");
                 // Toutes les barres sont placées, le joueur a gagné
+                ColorSelectBar(bars[currentBarIndex-1].gameObject, false);
+            }
+            else
+            {
+                ColorSelectBar(bars[currentBarIndex].gameObject, true);
             }
         }
         else
@@ -92,7 +114,9 @@ public class DataCrackGame : MonoBehaviour
             if (currentBarIndex > 0)
             {
                 isBarLocked[currentBarIndex] = false; // Déverrouiller la barre actuelle
+                ColorSelectBar(bars[currentBarIndex].gameObject, false); // Désélectionner la barre actuelle
                 currentBarIndex--; // Revenir à la barre précédente
+                ColorSelectBar(bars[currentBarIndex].gameObject, true); // Sélectionner la barre précédente
                 isBarLocked[currentBarIndex] = false; // Remettre en mouvement la barre N-1
             }
         }
